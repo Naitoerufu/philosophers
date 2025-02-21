@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:42 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:11:12 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:24:54 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ int	main(int ac, char **av)
 	if (ac < 5 || ac > 6)
 	{
 		write(STDERR_FILENO, "There are too many or not enough arguments !\n", 46);
-		return (-1);
+		return (ERROR);
 	}
 	if (ft_arg_check(ac, av) < 0)
-		return (-1);
+		return (ERROR);
 	ft_define(&philo);
 	if (ft_parse(ac, av, &philo) < 0)
 	{
 		write (STDERR_FILENO, "Memory allocation error !\n", 27);
-		return (-1);
+		return (ERROR);
 	}
 
 

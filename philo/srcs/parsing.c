@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:41:18 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:18:13 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:24:37 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	ft_arg_check(int ac, char **av)
 			if (!ft_isdigit(av[index][j]))
 			{
 				printf("There are not only a numbers in the arguments !\n");
-				return (-1);
+				return (ERROR);
 			}
 			j++;
 		}
 		if (ft_strlen(av[index]) > 10 || (ft_strlen(av[index]) == 10 && ft_strcmp(av[index], "2147483647") > 0))
 		{
 			printf("There are arguments that are superior of INT_MAX\n");
-			return (-1);
+			return (ERROR);
 		}
 		index++;
 	}
@@ -67,9 +67,9 @@ int	ft_parse(int ac, char **av, t_global *global)
 	}
 	global->forks = malloc(sizeof(pthread_mutex_t) * global->quantity);
 	if (!global->forks)
-		return (-1);
+		return (ERROR);
 	global->philos = malloc(sizeof(pthread_t) * global->quantity);
 	if (!global->philos)
-		return (-1);
+		return (ERROR);
 	ft_philo_init(global);
 }

@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:18:24 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:22:02 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:25:25 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_create_philos(t_global *global)
         if (pthread_create(global->philos[i].thread, NULL, NULL, &global->philos[i]) != 0)
         {
             write (STDERR_FILENO, "Thread creation error !\n", 25);
-            return (-1);
+            return (ERROR);
         }
         i++;
     }

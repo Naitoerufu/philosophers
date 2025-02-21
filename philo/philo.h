@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:35 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:10:18 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:23:58 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/time.h>
 # include <unistd.h>
 
+#define ERROR -1
 #define EAT_STATE 1
 #define SLEEP_STATE 2
 #define THINK_STATE 3
