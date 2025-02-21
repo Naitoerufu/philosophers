@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmaksymi <mmaksymi@student.42.fr>          +#+  +:+       +#+         #
+#    By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 16:51:42 by mmaksymi          #+#    #+#              #
-#    Updated: 2025/02/20 11:28:38 by mmaksymi         ###   ########.fr        #
+#    Updated: 2025/02/21 11:16:22 by mmaksymi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Werror -Wextra #-Wno-unused-but-set-variable
+CFLAGS = -Wall -Werror -Wextra -pthread -Wno-unused-but-set-variable
 
 NAME = philo
 
