@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:35 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 10:40:37 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 11:16:42 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 # include <unistd.h>
 
 #define ERROR -1
-#define EAT_STATE 1
-#define SLEEP_STATE 2
-#define THINK_STATE 3
+#define FORK_STATE 1
+#define EAT_STATE 2
+#define SLEEP_STATE 3
+#define THINK_STATE 4
 
 typedef struct s_philo
 {
@@ -43,6 +44,7 @@ typedef struct s_global
 	long start_time;
 	int lunch_quantity;
 	bool limit;
+	bool dead;
 	pthread_mutex_t write_mutex;
 	pthread_mutex_t *forks;
 }	t_global;

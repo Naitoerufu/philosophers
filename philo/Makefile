@@ -6,7 +6,7 @@
 #    By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 16:51:42 by mmaksymi          #+#    #+#              #
-#    Updated: 2025/02/22 10:17:58 by mmaksymi         ###   ########.fr        #
+#    Updated: 2025/02/22 11:12:05 by mmaksymi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,6 @@ clean:
 	rm -rf $(OFILES)
 
 fclean: clean
-	rm -rf $(NAME) $(OFILES)
+	rm -rf $(NAME)
 
 re: fclean $(NAME)
