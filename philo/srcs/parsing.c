@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:41:18 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:24:37 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 10:36:14 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,10 @@ int	ft_parse(int ac, char **av, t_global *global)
 	global->forks = malloc(sizeof(pthread_mutex_t) * global->quantity);
 	if (!global->forks)
 		return (ERROR);
-	global->philos = malloc(sizeof(pthread_t) * global->quantity);
+	global->philos = malloc(sizeof(t_philo) * global->quantity);
 	if (!global->philos)
 		return (ERROR);
 	ft_philo_init(global);
+	
+	return (0);
 }

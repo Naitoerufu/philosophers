@@ -6,7 +6,7 @@
 #    By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 16:51:42 by mmaksymi          #+#    #+#              #
-#    Updated: 2025/02/21 11:16:22 by mmaksymi         ###   ########.fr        #
+#    Updated: 2025/02/22 10:17:58 by mmaksymi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ NAME = philo
 
 SRCS = srcs/main.c \
 		srcs/parsing.c \
-		srcs/utils.c
+		srcs/utils.c \
+		srcs/threads.c \
+		srcs/philo.c
 	
 OFILES = $(SRCS:.c=.o)
 

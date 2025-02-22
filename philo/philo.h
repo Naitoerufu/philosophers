@@ -6,13 +6,14 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:35 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:23:58 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 10:40:37 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
+# include <stdlib.h>
 # include <stdbool.h>
 # include <pthread.h>
 # include <stdio.h>
@@ -26,7 +27,7 @@
 
 typedef struct s_philo
 {
-	t_global *global;
+	struct s_global *global;
 	pthread_t thread;
 	int	id;
 	int last_lunch_time;
@@ -51,7 +52,11 @@ int	ft_strcmp(char *s1, char *s2);
 int				ft_isdigit(int c);
 int				ft_atoi(const char *nptr);
 int				ft_arg_check(int ac, char **av);
-int			ft_parse(int ac, char **av, t_philo *philo);
+int			ft_parse(int ac, char **av, t_global *global);
 int				ft_error_check(t_philo philo);
+
+int ft_create_philos(t_global *global);
+void    *ft_philo(void* philo);
+int ft_wait_philos(t_global *global);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:42 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/21 15:24:54 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 10:40:52 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_define(t_global *global)
 
 int	main(int ac, char **av)
 {
-	t_philo	philo;
+	t_global glob;
 
 	if (ac < 5 || ac > 6)
 	{
@@ -35,15 +35,15 @@ int	main(int ac, char **av)
 	}
 	if (ft_arg_check(ac, av) < 0)
 		return (ERROR);
-	ft_define(&philo);
-	if (ft_parse(ac, av, &philo) < 0)
+	ft_define(&glob);
+	if (ft_parse(ac, av, &glob) < 0)
 	{
 		write (STDERR_FILENO, "Memory allocation error !\n", 27);
 		return (ERROR);
 	}
 
+	ft_create_philos(&glob);
 
-
-	
+	ft_wait_philos(&glob);
 	return (0);
 }
