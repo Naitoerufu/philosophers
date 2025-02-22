@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:42 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 11:16:58 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 12:17:34 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ void	ft_define(t_global *global)
 	global->time_to_die = 0;
 	global->time_to_eat = 0;
 	global->time_to_sleep = 0;
+}
+
+void ft_free(t_global *glob)
+{
+	int i;
+
+	i = 0;
+	while (i < glob->quantity)
+	{
+		pthread_mutex_destroy(&glob->forks[i]);
+		i++;
+	}
+	pthread_mutex_destroy(&glob->write_mutex);
+	free(glob->forks);
+	free(glob->philos);
 }
 
 int	main(int ac, char **av)
@@ -46,5 +61,6 @@ int	main(int ac, char **av)
 	ft_create_philos(&glob);
 
 	ft_wait_philos(&glob);
+	ft_free(&glob);
 	return (0);
 }

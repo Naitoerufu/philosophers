@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:18:24 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 10:40:18 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 11:37:43 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int ft_create_philos(t_global *global)
     int i;
 
     i = 0;
+    global->start_time = ft_get_time();
     while (i < global->quantity)
     {
         if (pthread_create(&global->philos[i].thread, NULL, &ft_philo, &global->philos[i]) != 0)

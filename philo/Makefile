@@ -6,7 +6,7 @@
 #    By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/11 16:51:42 by mmaksymi          #+#    #+#              #
-#    Updated: 2025/02/22 11:12:05 by mmaksymi         ###   ########.fr        #
+#    Updated: 2025/02/22 11:40:37 by mmaksymi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS = srcs/main.c \
 		srcs/parsing.c \
 		srcs/utils.c \
 		srcs/threads.c \
-		srcs/philo.c
+		srcs/philo.c \
+		srcs/time.c
 	
 OFILES = $(SRCS:.c=.o)
 

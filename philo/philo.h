@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:35 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 11:16:42 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/22 12:05:04 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #define EAT_STATE 2
 #define SLEEP_STATE 3
 #define THINK_STATE 4
+#define DEAD_STATE 5
 
 typedef struct s_philo
 {
@@ -41,13 +42,16 @@ typedef struct s_global
 	int time_to_eat;
 	int time_to_sleep;
 	int time_to_die;
-	long start_time;
+	size_t start_time;
 	int lunch_quantity;
 	bool limit;
 	bool dead;
 	pthread_mutex_t write_mutex;
 	pthread_mutex_t *forks;
 }	t_global;
+
+size_t ft_get_time(void);
+int	ft_usleep(size_t ms);
 
 int	ft_strlen(const char *s);
 int	ft_strcmp(char *s1, char *s2);
