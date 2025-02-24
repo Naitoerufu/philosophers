@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:38:08 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/24 13:52:31 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:06:45 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,10 @@ void	*ft_philo(void *philo)
 	ph = (t_philo *)philo;
 	while (ph->global->start_time == 0 && !ft_is_dead(ph->global))
 		usleep(1000);
-	if (ph->global->limit && ph->lunch_count >= ph->global->lunch_quantity)
-		return (NULL);
 	while (!ft_is_dead(ph->global))
 	{
+		if (ph->global->limit && ph->lunch_count >= ph->global->lunch_quantity)
+			return (NULL);
 		if (ft_take_forks(ph) == DEAD_STATE)
 			return (NULL);
 		ph->last_lunch_time = ft_get_time();
