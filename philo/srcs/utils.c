@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:14:12 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 11:25:06 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:11:26 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+size_t	ft_atoi(const char *nptr)
 {
 	int	count;
 	int	out;

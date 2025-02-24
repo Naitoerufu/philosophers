@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:42 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 12:17:34 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:53:50 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void ft_free(t_global *glob)
 		pthread_mutex_destroy(&glob->forks[i]);
 		i++;
 	}
+	pthread_mutex_destroy(&glob->check);
 	pthread_mutex_destroy(&glob->write_mutex);
 	free(glob->forks);
 	free(glob->philos);
@@ -57,10 +58,10 @@ int	main(int ac, char **av)
 		write (STDERR_FILENO, "Memory allocation error !\n", 27);
 		return (ERROR);
 	}
-
+	ft_init_mutex(&glob);
 	ft_create_philos(&glob);
-
 	ft_wait_philos(&glob);
+	printf("THAT'S FINISHED MAN !\n\n");
 	ft_free(&glob);
 	return (0);
 }

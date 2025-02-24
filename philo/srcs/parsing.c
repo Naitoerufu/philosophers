@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 10:41:18 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 10:36:14 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:42:45 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	ft_philo_init(t_global *global)
 	i = 0;
 	while (i < global->quantity)
 	{
+		global->philos[i].lunch_count = 0;
 		global->philos[i].global = global;
 		global->philos[i].id = i;
 		global->philos[i].last_lunch_time = 0;

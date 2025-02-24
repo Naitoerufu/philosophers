@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:38:08 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/22 13:08:37 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:05:42 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	ft_put_forks(t_philo *ph)
 	}
 }
 
-static void	ft_message(t_philo *ph, int state, size_t timestamp)
+void	ft_message(t_philo *ph, int state, size_t timestamp)
 {
 	pthread_mutex_lock(&ph->global->write_mutex);
 	if (state == FORK_STATE)
@@ -79,14 +79,18 @@ void	*ft_philo(void *philo)
 		ft_message(ph, FORK_STATE, ft_get_time() - ph->global->start_time);
 		ft_message(ph, EAT_STATE, ft_get_time() - ph->global->start_time);
 		ph->last_lunch_time = ft_get_time();
-		if (!ph->global->dead)
-			ft_usleep(ph->global->time_to_eat);
+		ft_usleep_cool(ph->global->time_to_eat, ph);
+		if (ph->global->dead)
+		{
+			ft_put_forks(ph);
+			break ;
+		}
 		ft_put_forks(ph);
 		ft_message(ph, SLEEP_STATE, ft_get_time() - ph->global->start_time);
-		if (!ph->global->dead)
-			ft_usleep(ph->global->time_to_sleep);
+		ft_usleep_cool(ph->global->time_to_sleep, ph);
+		if (ph->global->dead)
+			break ;
 		ft_message(ph, THINK_STATE, ft_get_time() - ph->global->start_time);
-        //ph->global->dead = true;
 	}
 	return (NULL);
 }
