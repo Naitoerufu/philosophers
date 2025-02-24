@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 11:24:57 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/24 11:21:43 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:47:17 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	ft_usleep_cool(size_t ms, t_philo *ph)
 		{
 			pthread_mutex_lock(&ph->global->check);
 			ph->global->dead = true;
-			ft_message(ph, DEAD_STATE, ft_get_time() - ph->global->start_time);
 			pthread_mutex_unlock(&ph->global->check);
-			break ;
+			ft_message(ph, DEAD_STATE, ft_get_time() - ph->global->start_time);
+			return (DEAD_STATE);
 		}
 		usleep(1);
 	}

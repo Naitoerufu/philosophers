@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:35 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/24 11:11:44 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:51:30 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_philo
 
 typedef struct s_global
 {
+	int dead_print;
 	t_philo *philos;
 	int quantity;
 	size_t time_to_eat;

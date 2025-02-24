@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:16:42 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/24 11:53:50 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:52:53 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_define(t_global *global)
 {
+	global->dead_print = 0;
 	global->dead = false;
 	global->limit = false;
 	global->lunch_quantity = 0;
@@ -61,7 +62,6 @@ int	main(int ac, char **av)
 	ft_init_mutex(&glob);
 	ft_create_philos(&glob);
 	ft_wait_philos(&glob);
-	printf("THAT'S FINISHED MAN !\n\n");
 	ft_free(&glob);
 	return (0);
 }
