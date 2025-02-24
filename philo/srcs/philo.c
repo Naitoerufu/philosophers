@@ -6,7 +6,7 @@
 /*   By: mmaksymi <mmaksymi@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 10:38:08 by mmaksymi          #+#    #+#             */
-/*   Updated: 2025/02/24 14:06:45 by mmaksymi         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:10:21 by mmaksymi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,9 @@ void	ft_message(t_philo *ph, int state, size_t timestamp)
 	if (state == DEAD_STATE && ph->global->dead_print < 1)
 	{
 		printf("%lu %d died\n", timestamp, ph->id + 1);
+		pthread_mutex_lock(&ph->global->check);
 		ph->global->dead_print++;
+		pthread_mutex_unlock(&ph->global->check);
 	}
 	pthread_mutex_unlock(&ph->global->write_mutex);
 }
